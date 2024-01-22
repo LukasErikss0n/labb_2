@@ -18,7 +18,7 @@ public class MyArrayList<E> implements Serializable, Cloneable, Iterable<E>,
 
     public static void main(String[] args) {
         MyArrayList<String> strlist = new MyArrayList<String>();
-
+            //komment
         // testa metoder härifrån
 
     }
