@@ -202,15 +202,15 @@ public class MyArrayListTest {
     }
 
     public static void main(String[] args) {
-//		testAvMyArrayList();
-//		testAvSize();
-//		testAvIsEmpty();
-//		testAvClear();
-//		testAvAddindex();
+		testAvMyArrayList();
+		testAvSize();
+		testAvIsEmpty();
+		testAvClear();
+		testAvAddindex();
         testAvAddE();
-//		testAvGetindex();
-//		testAvSetindex();
-//		testAvRemoveindex();
+		testAvGetindex();
+		testAvSetindex();
+		testAvRemoveindex();
 //		testAvRemoveRange();
 //		testAvIndexOf();
 //		testAvRemoveobject();

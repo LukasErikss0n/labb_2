@@ -16,28 +16,22 @@ public class MyArrayList<E> implements Serializable, Cloneable, Iterable<E>,
 
     // ---------------------------------------------------------------
 
+    E[] dataArray;
     public static void main(String[] args) {
-        MyArrayList<String> strlist = new MyArrayList<String>();
-        MyArrayList<String> strListWithDefaultCapacity = new MyArrayList<>();
+        MyArrayList<String> strlist = new MyArrayList<String>(17);
 
         // testa metoder härifrån
-        MyArrayListTest.testAvMyArrayList();
 
     }
 
     // ---------------------------------------------------------------
 
-    public MyArrayList(int initialCapacity) {
-        try {
+    private int size = 0;
+    public MyArrayList(int initialCapacity) throws IllegalArgumentException {
             if( initialCapacity < 0) {
                 throw new IllegalArgumentException("Initalcapacity need to be > 0");
             }
-            MyArrayList<String> strlist = new MyArrayList <String> (initialCapacity);
-
-        } catch(IllegalArgumentException e){
-            System.out.println(e.getMessage());
-        }
-        //kommentar
+            dataArray = (E[]) new Object[initialCapacity];
     }
 
     public MyArrayList() {
@@ -48,64 +42,114 @@ public class MyArrayList<E> implements Serializable, Cloneable, Iterable<E>,
 
     @Override
     public int size() {
-        /* ska implementeras */
-        return -1; /* bara med för att Eclipse inte ska klaga */
+        return size;
     }
 
     @Override
     public boolean isEmpty() {
-        /* ska implementeras */
-        return false; /* bara med för att Eclipse inte ska klaga */
+        if(size == 0){
+            return true;
+        }
+        return false;
     }
 
     @Override
     public void clear() {
-        /* ska implementeras */
+        for(int i = 0; i < size; i++ ){
+            remove(i);
+        }
+        size = 0;
     }
 
     // -- 2 --
 
     public void ensureCapacity(int minCapacity) {
-        /* ska implementeras */
+        if(minCapacity < dataArray.length){
+            return;
+        }
+        E[] replaceArray = (E[]) new Object[minCapacity];
+        for(int i = 0; i < size; i++){
+            replaceArray[i] = dataArray[i];
+        }
+        dataArray = replaceArray;
     }
 
     public void trimToSize() {
-        /* ska implementeras */
+        if(size != dataArray.length) {
+            ensureCapacity(size);
+        }
     }
 
     // -- 3 --
 
     @Override
     public void add(int index, E element) {
-        /* ska implementeras */
+        if(index < 0 || index > size){
+            throw new IndexOutOfBoundsException("index out of bounce");
+        }else if(size == dataArray.length){
+            ensureCapacity(size +1);
+        }
+        E shift = dataArray[index];
+        dataArray[index] = element;
+
+        for(int i = index; i < size; i++){
+            E arraySplit = dataArray[i];
+            dataArray[i] = shift;
+            shift = arraySplit;
+        }
+        size++;
     }
 
     @Override
     public boolean add(E e) {
-        /* ska implementeras */
-        return false; /* bara med för att Eclipse inte ska klaga */
+        if(size == dataArray.length){
+            ensureCapacity(size+1);
+        }
+        dataArray[size] = e;
+        size++;
+        return true;
+        //fixa addasen och remove
     }
+
 
     // -- 4 --
 
     @Override
     public E get(int index) {
-        /* ska implementeras */
-        return null; /* bara med för att Eclipse inte ska klaga */
+        if(index < 0 || index > size){
+            throw new IndexOutOfBoundsException("index out of bounce");
+        }
+        return dataArray[index];
     }
 
     @Override
     public E set(int index, E element) {
-        /* ska implementeras */
-        return null; /* bara med för att Eclipse inte ska klaga */
+        if(index < 0 || index > size){
+            throw new IndexOutOfBoundsException("index out of bounce");
+        }
+        E previous = get(index);
+        dataArray[index] = element;
+        return previous;
     }
 
     // -- 5 --
 
     @Override
     public E remove(int index) {
-        /* ska implementeras */
-        return null; /* bara med för att Eclipse inte ska klaga */
+        if(index < 0 || index > size){
+            throw new IndexOutOfBoundsException("index out of bounce");
+        }
+        E removed = dataArray[index];
+        E[] shortend = (E[]) new Object[size-1];
+
+        for(int i = 0; i < size; i++){
+            if(i == index){
+                continue;
+            }
+            shortend[i] = dataArray[i];
+        }
+        size--;
+        return removed;
     }
 
     protected void removeRange(int fromIndex, int toIndex) {
