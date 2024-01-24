@@ -18,19 +18,29 @@ public class MyArrayList<E> implements Serializable, Cloneable, Iterable<E>,
 
     public static void main(String[] args) {
         MyArrayList<String> strlist = new MyArrayList<String>();
-            //komment
+        MyArrayList<String> strListWithDefaultCapacity = new MyArrayList<>();
+
         // testa metoder härifrån
+        MyArrayListTest.testAvMyArrayList();
 
     }
 
     // ---------------------------------------------------------------
 
     public MyArrayList(int initialCapacity) {
-        /* ska implementeras */
+        try {
+            if( initialCapacity < 0) {
+                throw new IllegalArgumentException("Initalcapacity need to be > 0");
+            }
+            MyArrayList<String> strlist = new MyArrayList <String> (initialCapacity);
+
+        } catch(IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public MyArrayList() {
-        /* ska implementeras */
+        this(10);
     }
 
     // -- 1 --
