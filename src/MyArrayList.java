@@ -37,6 +37,7 @@ public class MyArrayList<E> implements Serializable, Cloneable, Iterable<E>,
         } catch(IllegalArgumentException e){
             System.out.println(e.getMessage());
         }
+        //kommentar
     }
 
     public MyArrayList() {
