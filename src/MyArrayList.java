@@ -84,20 +84,21 @@ public class MyArrayList<E> implements Serializable, Cloneable, Iterable<E>,
 
     @Override
     public void add(int index, E element) {
-        if(index < 0 || index > size){
-            throw new IndexOutOfBoundsException("index out of bounce");
-        }else if(size == dataArray.length){
-            ensureCapacity(size +1);
-        }
-        E shift = dataArray[index];
-        dataArray[index] = element;
+     if (index < 0 || index > size){
+         throw new IndexOutOfBoundsException();
+     } else if (size == dataArray.length) {
+         ensureCapacity(size +1);
+     }
 
-        for(int i = index; i < size; i++){
-            E arraySplit = dataArray[i];
-            dataArray[i] = shift;
-            shift = arraySplit;
-        }
-        size++;
+     E newAdd = element;
+
+
+     for (int i = index; i < size; i++){
+         E arrayMove = dataArray[i];
+         dataArray[i] = newAdd;
+         newAdd = arrayMove;
+     }
+
     }
 
     @Override
