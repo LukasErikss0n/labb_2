@@ -7,6 +7,10 @@
     <list default="true" id="9830bf9f-e50a-4763-bb8f-c44bb3ae266b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MyArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyArrayList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyArrayListTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyArrayListTest.java" afterDir="false" />
+    </list>
+    <list id="409708cd-7700-49e4-850b-fcff42aa6665" name="Changes by Vidar Nilsson" comment="">
+      <change beforePath="$PROJECT_DIR$/src/MyArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyArrayList.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,42 +19,81 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/MyArrayList.java">
+      <ranges>
+        <range start1="33" end1="34" start2="33" end2="34" changelist="9830bf9f-e50a-4763-bb8f-c44bb3ae266b" />
+        <range start1="37" end1="37" start2="37" end2="38" changelist="409708cd-7700-49e4-850b-fcff42aa6665" />
+        <range start1="48" end1="53" start2="49" end2="51" changelist="9830bf9f-e50a-4763-bb8f-c44bb3ae266b" />
+        <range start1="57" end1="58" start2="55" end2="56" changelist="9830bf9f-e50a-4763-bb8f-c44bb3ae266b" />
+        <range start1="59" end1="60" start2="57" end2="58" changelist="9830bf9f-e50a-4763-bb8f-c44bb3ae266b" />
+        <range start1="77" end1="79" start2="75" end2="77" changelist="9830bf9f-e50a-4763-bb8f-c44bb3ae266b" />
+        <range start1="80" end1="80" start2="78" end2="85" changelist="9830bf9f-e50a-4763-bb8f-c44bb3ae266b" />
+        <range start1="85" end1="94" start2="90" end2="98" changelist="9830bf9f-e50a-4763-bb8f-c44bb3ae266b" />
+        <range start1="95" end1="101" start2="99" end2="105" changelist="9830bf9f-e50a-4763-bb8f-c44bb3ae266b" />
+        <range start1="111" end1="112" start2="115" end2="115" changelist="9830bf9f-e50a-4763-bb8f-c44bb3ae266b" />
+        <range start1="118" end1="119" start2="121" end2="122" changelist="9830bf9f-e50a-4763-bb8f-c44bb3ae266b" />
+        <range start1="126" end1="127" start2="129" end2="130" changelist="9830bf9f-e50a-4763-bb8f-c44bb3ae266b" />
+        <range start1="138" end1="139" start2="141" end2="142" changelist="9830bf9f-e50a-4763-bb8f-c44bb3ae266b" />
+        <range start1="145" end1="146" start2="148" end2="149" changelist="9830bf9f-e50a-4763-bb8f-c44bb3ae266b" />
+        <range start1="151" end1="151" start2="154" end2="155" changelist="9830bf9f-e50a-4763-bb8f-c44bb3ae266b" />
+        <range start1="155" end1="157" start2="159" end2="167" changelist="409708cd-7700-49e4-850b-fcff42aa6665" />
+        <range start1="163" end1="165" start2="173" end2="179" changelist="409708cd-7700-49e4-850b-fcff42aa6665" />
+        <range start1="169" end1="171" start2="183" end2="189" changelist="409708cd-7700-49e4-850b-fcff42aa6665" />
+        <range start1="175" end1="177" start2="193" end2="197" changelist="409708cd-7700-49e4-850b-fcff42aa6665" />
+        <range start1="183" end1="185" start2="203" end2="206" changelist="409708cd-7700-49e4-850b-fcff42aa6665" />
+        <range start1="189" end1="191" start2="210" end2="215" changelist="9830bf9f-e50a-4763-bb8f-c44bb3ae266b" />
+      </ranges>
+    </file>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2bJHwAux9HonFQiCmbNQ2LwLgxZ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.MyArrayList.executor": "Debug",
-    "Application.MyArrayListTest.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Lukas Eriksson/Downloads/cwm-plugin-213.4250.391.zip",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.MyArrayList.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MyArrayListTest.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration name="MyArrayListTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MyArrayListTest" />
+      <module name="Labb2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MyArrayListTest" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
         <option value="jdk-1.8.0_402-corretto-1.8.0_402-f644763e9732-af3fa2b8" />
-        <option value="jdk-17.0.9-temurin-17.0.9-f644763e9732-636ea113" />
+        <option value="jdk-21.0.1-openjdk-21.0.1-f644763e9732-f98dd351" />
       </set>
     </attachedChunks>
   </component>
@@ -63,22 +106,12 @@
       <option name="presentableId" value="Default" />
       <updated>1705926497793</updated>
       <workItem from="1705926498779" duration="1000" />
-      <workItem from="1706086759892" duration="4767000" />
+      <workItem from="1706092057621" duration="12895000" />
+      <workItem from="1706521365870" duration="9448000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>

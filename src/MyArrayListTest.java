@@ -211,12 +211,12 @@ public class MyArrayListTest {
 		testAvGetindex();
 		testAvSetindex();
 		testAvRemoveindex();
-//		testAvRemoveRange();
-//		testAvIndexOf();
-//		testAvRemoveobject();
-//		testAvContainsobject();
-//		testAvClone();
-//		testAvToArray();
+		testAvRemoveRange();
+		testAvIndexOf();
+		testAvRemoveobject();
+		testAvContainsobject();
+		testAvClone();
+		testAvToArray();
     }
 
 }

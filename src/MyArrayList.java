@@ -31,7 +31,7 @@ public class MyArrayList<E> implements Serializable, Cloneable, Iterable<E>,
             if( initialCapacity < 0) {
                 throw new IllegalArgumentException("Initalcapacity need to be > 0");
             }
-            dataArray = (E[]) new Object[initialCapacity];
+            dataArray = (E[]) new Object[initialCapacity]; // skapar en array med en lengd av en variabel
     }
 
     public MyArrayList() {
@@ -46,18 +46,15 @@ public class MyArrayList<E> implements Serializable, Cloneable, Iterable<E>,
     }
 
     @Override
-    public boolean isEmpty() {
-        if(size == 0){
-            return true;
-        }
-        return false;
+    public boolean isEmpty() { //returnerar false om arrayn inte är tom
+        return size == 0;
     }
 
     @Override
     public void clear() {
-        for(int i = 0; i < size; i++ ){
+        /*for(int i = 0; i < size; i++ ){
             remove(i);
-        }
+        }*/
         size = 0;
     }
 
@@ -75,30 +72,36 @@ public class MyArrayList<E> implements Serializable, Cloneable, Iterable<E>,
     }
 
     public void trimToSize() {
-        if(size != dataArray.length) {
-            ensureCapacity(size);
+        if(size == dataArray.length) {
+            return;
         }
+        E[] newList = (E[]) new Object();
+        for(int i = 0; i<size; i++){
+            newList[i] = dataArray[i];
+        }
+
+
+        dataArray = newList;
     }
 
     // -- 3 --
 
     @Override
-    public void add(int index, E element) {
-     if (index < 0 || index > size){
-         throw new IndexOutOfBoundsException();
-     } else if (size == dataArray.length) {
-         ensureCapacity(size +1);
-     }
+    public void add(int index, E element) throws IndexOutOfBoundsException {
+        if(index < 0 || index > size){
+            throw new IndexOutOfBoundsException("index out of bounce");
+        }else if(size == dataArray.length){
+            ensureCapacity(size +1);
+        }
+        E shift = dataArray[index];
+        dataArray[index] = element;
 
-     E newAdd = element;
-
-
-     for (int i = index; i < size; i++){
-         E arrayMove = dataArray[i];
-         dataArray[i] = newAdd;
-         newAdd = arrayMove;
-     }
-
+        for(int i = index; i < size; i++){
+            E arraySplit = dataArray[i];
+            dataArray[i+1] = shift;
+            shift = arraySplit;
+        }
+        size++;
     }
 
     @Override
@@ -109,14 +112,13 @@ public class MyArrayList<E> implements Serializable, Cloneable, Iterable<E>,
         dataArray[size] = e;
         size++;
         return true;
-        //fixa addasen och remove
     }
 
 
     // -- 4 --
 
     @Override
-    public E get(int index) {
+    public E get(int index) throws IndexOutOfBoundsException {
         if(index < 0 || index > size){
             throw new IndexOutOfBoundsException("index out of bounce");
         }
@@ -124,7 +126,7 @@ public class MyArrayList<E> implements Serializable, Cloneable, Iterable<E>,
     }
 
     @Override
-    public E set(int index, E element) {
+    public E set(int index, E element) throws IndexOutOfBoundsException {
         if(index < 0 || index > size){
             throw new IndexOutOfBoundsException("index out of bounce");
         }
@@ -136,19 +138,20 @@ public class MyArrayList<E> implements Serializable, Cloneable, Iterable<E>,
     // -- 5 --
 
     @Override
-    public E remove(int index) {
+    public E remove(int index) throws IndexOutOfBoundsException {
         if(index < 0 || index > size){
             throw new IndexOutOfBoundsException("index out of bounce");
         }
         E removed = dataArray[index];
         E[] shortend = (E[]) new Object[size-1];
 
-        for(int i = 0; i < size; i++){
+        for(int i = 0; i < size - 1; i++){
             if(i == index){
                 continue;
             }
             shortend[i] = dataArray[i];
         }
+        dataArray = shortend;
         size--;
         return removed;
     }
@@ -187,8 +190,11 @@ public class MyArrayList<E> implements Serializable, Cloneable, Iterable<E>,
 
     @Override
     public Object[] toArray() {
-        /* ska implementeras */
-        return null; /* bara med för att Eclipse inte ska klaga */
+        E[] newArray = (E[]) new Object[size];
+        for(int i = 0; i < size; i++) {
+            newArray[i] = get(i);
+        }
+        return newArray;
     }
 
     // --- Rör ej nedanstående kod -----------------------------------
