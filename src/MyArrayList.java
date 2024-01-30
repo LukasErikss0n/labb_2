@@ -41,36 +41,38 @@ public class MyArrayList<E> implements Serializable, Cloneable, Iterable<E>,
     // -- 1 --
 
     @Override
+    //retunerar storleken på arrayn
     public int size() {
         return size;
     }
 
     @Override
-    public boolean isEmpty() { //returnerar false om arrayn inte är tom
+    //returnerar false om arrayn inte är tom
+    public boolean isEmpty() {
         return size == 0;
     }
 
     @Override
+    // Tömmer listan trots att datan inte tas bort, genom att sätta size till noll kommer den att överskridas
     public void clear() {
-        /*for(int i = 0; i < size; i++ ){
-            remove(i);
-        }*/
         size = 0;
     }
 
     // -- 2 --
 
+    //Utökar arrayns kapacitet för instansen
     public void ensureCapacity(int minCapacity) {
         if(minCapacity < dataArray.length){
             return;
         }
-        E[] replaceArray = (E[]) new Object[minCapacity];
-        for(int i = 0; i < size; i++){
+        E[] replaceArray = (E[]) new Object[minCapacity]; //temporär arrays skapas med en längre längd
+        for(int i = 0; i < size; i++) {
             replaceArray[i] = dataArray[i];
         }
         dataArray = replaceArray;
     }
 
+    //Tar bort outnyttjat kapacitet i arrayn
     public void trimToSize() {
         if(size == dataArray.length) {
             return;
@@ -86,16 +88,18 @@ public class MyArrayList<E> implements Serializable, Cloneable, Iterable<E>,
 
     // -- 3 --
 
+    //Lägger till ett element i arrayn på en specifik plats
     @Override
     public void add(int index, E element) throws IndexOutOfBoundsException {
         if(index < 0 || index > size){
             throw new IndexOutOfBoundsException("index out of bounce");
-        }else if(size == dataArray.length){
+        }else if(size == dataArray.length){ //Ser till att elementet som ska läggs till får plats
             ensureCapacity(size +1);
         }
-        E shift = dataArray[index];
-        dataArray[index] = element;
+        E shift = dataArray[index]; //Tillfälligt sparar elementet vars index är samma som det nya elementet
+        dataArray[index] = element; //Sparar nya elementet på platsen som de ska lägas till
 
+        //Shiftar alla element (efter det nya) till höger
         for(int i = index; i < size; i++){
             E arraySplit = dataArray[i];
             dataArray[i+1] = shift;
@@ -104,9 +108,10 @@ public class MyArrayList<E> implements Serializable, Cloneable, Iterable<E>,
         size++;
     }
 
+    //Lägger till ett element sist i arrayn
     @Override
     public boolean add(E e) {
-        if(size == dataArray.length){
+        if(size == dataArray.length){     //Om arrayn är full kallas ensureCapacity som utvidgar arrayn
             ensureCapacity(size+1);
         }
         dataArray[size] = e;
@@ -116,8 +121,8 @@ public class MyArrayList<E> implements Serializable, Cloneable, Iterable<E>,
 
 
     // -- 4 --
-
     @Override
+    //Hämtar elementet i arrayn på indexen som efterfrågas
     public E get(int index) throws IndexOutOfBoundsException {
         if(index < 0 || index > size){
             throw new IndexOutOfBoundsException("index out of bounce");
@@ -126,6 +131,7 @@ public class MyArrayList<E> implements Serializable, Cloneable, Iterable<E>,
     }
 
     @Override
+    //Ersätter elementet på specificerade platsen(index) i arrayn
     public E set(int index, E element) throws IndexOutOfBoundsException {
         if(index < 0 || index > size){
             throw new IndexOutOfBoundsException("index out of bounce");
@@ -136,7 +142,7 @@ public class MyArrayList<E> implements Serializable, Cloneable, Iterable<E>,
     }
 
     // -- 5 --
-
+    //Tar bort ett element utifrån angivet index
     @Override
     public E remove(int index) throws IndexOutOfBoundsException {
         if(index < 0 || index > size){
@@ -156,39 +162,63 @@ public class MyArrayList<E> implements Serializable, Cloneable, Iterable<E>,
         return removed;
     }
 
-    protected void removeRange(int fromIndex, int toIndex) {
-        /* ska implementeras */
+    //Tar bort en range av element mellan två angivna index
+    protected void removeRange(int fromIndex, int toIndex) throws IndexOutOfBoundsException {
+        if(fromIndex < 0 || fromIndex >= size || toIndex > size || toIndex < fromIndex) {
+            throw new IndexOutOfBoundsException("index out of bounce");
+        }
+        for(int i = fromIndex; i < toIndex; i++) { //Tar bort alla element från och med "fromIndex" till men inte "toIndex"
+            remove(i);
+            size--;
+        }
     }
 
     // -- 6 --
 
     @Override
+    //Tittar om ett efterfrågat element finns i listan, finns de flera tar det första elementet och returnar dess index
+    //Returns -1 om det inte finns
     public int indexOf(Object o) {
-        /* ska implementeras */
-        return -1; /* bara med för att Eclipse inte ska klaga */
+        for(int i = 0; i < size; i++) {
+            if(o == get(i)) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     @Override
+    //Tar bort första elementet av det angivna alementet
     public boolean remove(Object o) {
-        /* ska implementeras */
-        return false; /* bara med för att Eclipse inte ska klaga */
+        int removeIndex = indexOf(o);
+        if(removeIndex == -1){
+            return false;
+        }
+        remove(removeIndex);
+        return true;
     }
 
     @Override
+    //tittar om elementet finns, anväder indexOf för att se om de finns, returnerar sedan en boolean
     public boolean contains(Object o) {
-        /* ska implementeras */
-        return false; /* bara med för att Eclipse inte ska klaga */
+        if(indexOf(o) != -1) {
+            return true;
+        }
+        return false;
     }
 
     // -- 7 --
 
     @Override
+    //Skapar en "Shallow" kopia av array instansen. Den skapar inga nya element men den har pekare på elementet
     public Object clone() {
-        /* ska implementeras */
-        return null; /* bara med för att Eclipse inte ska klaga */
+        MyArrayList<E> clone = new MyArrayList<E>(size);
+        clone.dataArray = dataArray.clone();
+        return clone;
     }
 
     @Override
+    //Skapar en "Deep" kopia där alla element i arrayn kopieras över på en ny array
     public Object[] toArray() {
         E[] newArray = (E[]) new Object[size];
         for(int i = 0; i < size; i++) {
